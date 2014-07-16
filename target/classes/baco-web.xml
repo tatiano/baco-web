@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/data/jpa
    		http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd">
 
-	<context:component-scan base-package="br.com.baco-web" />
+	<context:component-scan base-package="baco.web" />
 
 	
 </beans>
