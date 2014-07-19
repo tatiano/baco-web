@@ -16,16 +16,13 @@
             <h:form id="categoryForm">
                 <p:commandButton widgetVar="addButton" value="#{labels.button_add}"
                     action="/pages/category/addEdit.faces" ajax="false"
-                    />
+                    actionListener="#{categoryAddEditMB.add}" />
                 <p:commandButton widgetVar="deleteButton"
-                    value="#{labels.button_delete}" action="#{categoryMB.delete}"
-                    update="categoryDataTable" oncomplete="unselectRows();"  />
-                <p:commandButton widgetVar="updateButton"
-                    value="#{labels.button_update}" update="categoryDataTable"
+                    value="#{labels.button_delete}" update="categoryDataTable" />
+                <p:commandButton widgetVar="updateButton" value="#{labels.button_update}" 
                     action="/pages/category/addEdit.faces"
-                     />
-                
-                    
+                    actionListener="#{categoryAddEditMB.update}" />
+                                    
                 <p:dataTable id="categoryDataTable" widgetVar="dataTable"
                     var="category" loadingMessage="#{labels.category_load}"
                     value="#{categoryMB.categories}" paginator="true" rows="10"
