@@ -5,9 +5,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = { "/ctx-baco-web-test.xml" })
-@ContextConfiguration(locations = { "file:src/test/resources/ctx-baco-web-test.xml"})
+@ContextConfiguration(locations = { "/ctx-baco-web-test.xml" })
 public abstract class AbstractDatabaseTest {
 }
-
-
