@@ -6,6 +6,8 @@
 	<persistence-unit name="persistenceUnitName" transaction-type="RESOURCE_LOCAL">
 		<class>org.springframework.data.jpa.domain.AbstractPersistable</class>
 		<class>baco.web.model.CategoryEntity</class>
+		<class>baco.web.model.ProductEntity</class>
+		<class>baco.web.model.UserEntity</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 		</properties>
