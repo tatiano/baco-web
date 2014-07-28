@@ -17,7 +17,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath:baco-web.xml
+			classpath:ctx-baco-web.xml
 		</param-value>
 	</context-param>
 

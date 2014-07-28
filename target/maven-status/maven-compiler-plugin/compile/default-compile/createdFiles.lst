@@ -1,1 +1,13 @@
-br\com\baco\web\support\settings\LanguageMB.class
+baco\web\model\utils\BaseBeans.class
+baco\web\model\ProductEntity.class
+baco\web\support\user\UserAddEditMB.class
+baco\web\support\category\CategoryAddEditMB.class
+baco\web\model\UserEntity.class
+baco\web\support\user\UserMB.class
+baco\web\support\category\CategoryMB.class
+baco\web\model\repositories\IProductRepository.class
+baco\web\model\repositories\IUserRepository.class
+baco\web\support\settings\LanguageMB.class
+baco\web\model\utils\BaseEntities.class
+baco\web\model\CategoryEntity.class
+baco\web\model\repositories\ICategoryRepository.class

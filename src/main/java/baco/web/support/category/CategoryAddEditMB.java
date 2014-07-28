@@ -9,7 +9,9 @@ import javax.inject.Named;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.WebApplicationContext;
+
 import baco.web.model.CategoryEntity;
+import baco.web.model.repositories.ICategoryRepository;
 import baco.web.model.utils.BaseBeans;
 
 @Scope(value = WebApplicationContext.SCOPE_REQUEST)
@@ -17,6 +19,9 @@ import baco.web.model.utils.BaseBeans;
 public class CategoryAddEditMB extends BaseBeans {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private ICategoryRepository categoryRepository;
 
 	@Inject
 	private CategoryMB mbCategoryBean;
@@ -56,13 +61,13 @@ public class CategoryAddEditMB extends BaseBeans {
 	public void save() {
 		if (this.category != null) {
 			if (this.category.getId() == null) {
-				// Add
-				//this.categoryRepository.save(this.category);
+				// Add - If id is null, method updates (Spring JPA Action)
+				this.categoryRepository.save(this.category);
 				category.setId(this.mbCategoryBean.getCategories().size()+1L);
 				this.mbCategoryBean.getCategories().add(category);
 			} else {
-				// Update
-				//this.categoryRepository.save(this.category);
+				// Update - If id is not null, method updates (Spring JPA Action)
+				this.categoryRepository.save(this.category);
 				for (int i = 0; i<this.mbCategoryBean.getCategories().size();i++){
 					if (this.mbCategoryBean.getCategories().get(i).getId() == this.category.getId()){
 						this.mbCategoryBean.getCategories().set(i,category);
