@@ -1,5 +1,2 @@
-<html>
-	<body>
-		<h1>oi</h1>
-	</body>
-</html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:redirect url="login.faces" />

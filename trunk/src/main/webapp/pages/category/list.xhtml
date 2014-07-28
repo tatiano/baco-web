@@ -18,10 +18,12 @@
                     action="/pages/category/addEdit.faces" ajax="false"
                     actionListener="#{categoryAddEditMB.add}" />
                 <p:commandButton widgetVar="deleteButton"
-                    value="#{labels.button_delete}" update="categoryDataTable" />
-                <p:commandButton widgetVar="updateButton" value="#{labels.button_update}" 
+                    value="#{labels.button_delete}" action="#{categoryMB.delete}"
+                    update="categoryDataTable" oncomplete="unselectRows();"  />      
+                <p:commandButton widgetVar="updateButton"
+                    value="#{labels.button_update}" update="categoryDataTable"
                     action="/pages/category/addEdit.faces"
-                    actionListener="#{categoryAddEditMB.update}" />
+                    actionListener="#{categoryAddEditMB.update}" />    
                                     
                 <p:dataTable id="categoryDataTable" widgetVar="dataTable"
                     var="category" loadingMessage="#{labels.category_load}"
@@ -30,6 +32,18 @@
                     rowsPerPageTemplate="5,10,20" rowKey="#{category.id}"
                     selectionMode="single">
 
+                    <!-- Ajax events -->
+                    <!-- When a row is selected, call the categoryMB.selectCategory method and release to server the category ID of the selected row. After, run the JS enableButtons functions -->
+                    <p:ajax event="rowSelect" listener="#{categoryMB.selectCategory}"
+                        oncomplete="enableButtons();" />
+                    
+                    <!-- On any page navigation, unselect all rows-->
+                    <p:ajax event="page" listener="#{categoryMB.unselectCategory}"
+                        oncomplete="unselectRows();" />
+                        
+                    <!-- When no rows are selected, disable buttons.-->    
+                    <p:ajax event="rowUnselect" listener="#{categoryMB.unselectCategory}"
+                        oncomplete="disableButtons();" />
                    
                     <p:column>
                         <f:facet name="header">

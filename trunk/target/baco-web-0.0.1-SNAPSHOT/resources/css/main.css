@@ -1,3 +1,13 @@
+.ui-widget {
+	font-size: 90% !important;	
+}
+
+.ui-panelmenu .ui-panelmenu-header a {
+	color: black;
+	font-style:normal;
+	text-decoration: none;
+}
+
 #mainHeader {
 	font-family: Verdana,sans-serif;
 	color: black;

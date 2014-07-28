@@ -12,14 +12,14 @@ import baco.web.model.repositories.IUserRepository;
 import baco.web.test.AbstractDatabaseTest;
 
 public class UserRepositoryTest extends AbstractDatabaseTest {
-	
+
 	private static final Logger LOGGER = Logger.getLogger(UserRepositoryTest.class);
 
 	@Inject
 	private IUserRepository userRepository;
 
 	@Test
-	public void testUserRepository() {
+	public void testCategoryRepository() {
 		List<UserEntity> users = this.userRepository.findAll();
 
 		LOGGER.info(users);
